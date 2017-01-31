@@ -1,0 +1,69 @@
+#
+###################################
+# Site wide configuration
+####################################
+#
+title: Cody Diary
+email: 476490767@qq.com
+description: 个人日记博客
+url: https://cody1991.github.io/diary/
+
+
+#
+###################################
+# Jekyll configuration
+####################################
+#
+timezone:          Asia/Shanghai
+markdown:          kramdown
+highlighter:       rouge
+excerpt_separator: <!--more-->
+permalink:         /articles/:year-:month/:title
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  enable_coderay: false
+
+#
+###################################
+# Site Owner configuration
+####################################
+#
+owner:
+  name: cody1991
+  avatar: avatar.png
+  job: "前端开发工程师"
+  bio: "爱生活，爱前端"
+  email: 
+  disqus-shortname: cody1991
+  twitter: cody19910828
+  facebook: profile.php?id=100014983143630
+  google:
+    plus: #username
+    analytics:
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
+  github: cody1991
+  gitlab: #username
+  stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
+  linkedin: #username
+  skype: #username
+  xing: #username
+  instagram: #username
+  lastfm: #username
+  tumblr: #username
+  pinterest: #username
+  foursquare: #username
+  steam: #username
+  dribbble: #username
+  youtube: #username
+  soundcloud: #username
+  weibo: cody1991
+  flickr: #username
+  500px: #username
+  codepen: #username
