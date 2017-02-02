@@ -2,7 +2,7 @@
 layout: post
 title: Day 3 Diary
 excerpt: ""
-categories: [diary]
+categories: [eloquentjavascript]
 comments: true
 tags: JavaScript
 image:
