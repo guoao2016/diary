@@ -1,8 +1,6 @@
-# diary
+# Cody Diary
 
-person diary
-
-[Cody Diary](https://cody1991.github.io/diary/)
+Go to [Cody Diary](https://cody1991.github.io/diary/)
 
 or
 
