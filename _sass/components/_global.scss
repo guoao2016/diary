@@ -108,6 +108,10 @@ footer {
     color: $danger;
     text-shadow: 0 0 5px $white, 0 0 10px $danger;
   }
+  .site-pv {
+    display: none;
+    font-size: 90%;
+  }
 }
 .related-articles {
   margin-top: 2em;
