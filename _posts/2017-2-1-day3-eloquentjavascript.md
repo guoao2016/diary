@@ -45,7 +45,7 @@ let journal = require('./journal.js')
 
 * _就是个变量，当然能在js里使用，这个jquery里的$是一种东西，无非是命名怪了点，总归还是变量，不要怕
 
-* 如果你问的是require或者import用法，那目前仍然需要通过babel或者traceur之类的转义工具将之转义为ES5语法，才能在浏览器里运行。但对于lodash库本身，并不是非得利用webpack...之类的工具才能用，直接使用<script>标签放在html里，就可以使用_了。
+* 如果你问的是require或者import用法，那目前仍然需要通过babel或者traceur之类的转义工具将之转义为ES5语法，才能在浏览器里运行。但对于lodash库本身，并不是非得利用webpack...之类的工具才能用，直接使用 `<script>` 标签放在html里，就可以使用_了。
 
 ---
 

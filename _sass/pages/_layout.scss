@@ -43,8 +43,9 @@
     font-size: 90%;
     display: block;
   }
-  #busuanzi_container_site_pv, #busuanzi_container_site_uv {
+  .site-pv {
     font-size: 90%;
+    display: none;
   }
   @include media-query($medium-screen) {
     text-align: right;
