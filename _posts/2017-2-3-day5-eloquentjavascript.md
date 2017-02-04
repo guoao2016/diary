@@ -336,6 +336,57 @@ function dataTable(data) {
 
 console.log(dataTable(require('./mountains.js')))
 console.log(drawTable(dataTable(require('./mountains.js'))))
+
+// We reuse the constructor and the minHeight and minWidth methods from the regular TextCell. An RTextCell is now basically equivalent to a TextCell, except that its draw method contains a different function.
+// 继承
+function RTextCell(text) {
+  // Typically, the new constructor will call the old constructor (using the call method in order to be able to give it the new object as its this value).
+  // Once this constructor has been called, we can assume that all the fields that the old object type is supposed to contain have been added
+  TextCell.call(this, text)
+}
+
+// We arrange for the constructor’s prototype to derive from the old prototype so that instances of this type will also have access to the properties in that prototype. 
+RTextCell.prototype = Object.create(TextCell.prototype)
+
+// Finally, we can override some of these properties by adding them to our new prototype
+RTextCell.prototype.draw = function (width, height) {
+  let result = []
+  for (let i = 0; i < height; i++) {
+    let line = this.text[i] || ''
+    result.push(repeat(" ", width - line.length) + line)
+  }
+  return result
+}
+
+function dataTable2(data) {
+  let keys = Object.keys(data[0])
+  let headers = keys.map(function (name) {
+    return new UnderlinedCell(new TextCell(name))
+  })
+
+  let body = data.map(function (row) {
+    return keys.map(function (name) {
+      let value = row[name]
+      if (typeof value == 'number') {
+        return new RTextCell(String(value))
+      } else {
+        return new TextCell(String(value))
+      }
+    })
+  })
+
+  return [headers].concat(body)
+}
+
+console.log(drawTable(dataTable2(require('./mountains.js'))))
+
+let test = new RTextCell('A')
+let test2 = new TextCell('A')
+console.log(test instanceof RTextCell)
+console.log(test instanceof TextCell)
+console.log(test2 instanceof RTextCell)
+console.log([1] instanceof Array)
+
 {% endhighlight %}
 
 补充： 2017.2.4 重新看了一遍，基本都熟悉了
