@@ -280,6 +280,7 @@ TextCell.prototype.minHeight = function () {
 TextCell.prototype.draw = function (width, height) {
   let result = []
   for (let i = 0; i < height; i++) {
+    // 有可能存在后面占据两行的情况
     let line = this.text[i] || ''
     result.push(line + repeat(" ", width - line.length))
   }
@@ -335,7 +336,6 @@ function dataTable(data) {
 
 console.log(dataTable(require('./mountains.js')))
 console.log(drawTable(dataTable(require('./mountains.js'))))
-
 {% endhighlight %}
 
 补充： 2017.2.4 重新看了一遍，基本都熟悉了
