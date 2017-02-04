@@ -199,7 +199,7 @@ console.log(map2.prototype)
 console.log(Object.getPrototypeOf(map2))
 {% endhighlight %}
 
-第二段，后面可能修改：
+第二段：
 
 {% highlight javascript %}
 // minHeight() returns a number indicating the minimum height this cell requires (in lines).
@@ -234,6 +234,7 @@ function drawTable(rows) {
   console.log(widths)
 
   function drawLine(blocks, lineNo) {
+
     return blocks.map(function (block) {
       return block[lineNo]
     }).join(' ')
@@ -243,6 +244,9 @@ function drawTable(rows) {
     let blocks = row.map(function (cell, colNum) {
       return cell.draw(widths[colNum], heights[rowNum])
     })
+
+    console.log(blocks[0])
+
     return blocks[0].map(function (_, lineNo) {
       return drawLine(blocks, lineNo)
     }).join("\n")
@@ -274,7 +278,6 @@ TextCell.prototype.minHeight = function () {
 }
 
 TextCell.prototype.draw = function (width, height) {
-  console.log(this.text, width, height)
   let result = []
   for (let i = 0; i < height; i++) {
     let line = this.text[i] || ''
@@ -296,7 +299,7 @@ for (let i = 0; i < 5; i++) {
   rows.push(row)
 }
 
-console.log(drawTable(rows))
+// console.log(drawTable(rows))
 
 function UnderlinedCell(inner) {
   this.inner = inner
@@ -332,6 +335,7 @@ function dataTable(data) {
 
 console.log(dataTable(require('./mountains.js')))
 console.log(drawTable(dataTable(require('./mountains.js'))))
+
 {% endhighlight %}
 
-先这样吧
+补充： 2017.2.4 重新看了一遍，基本都熟悉了
