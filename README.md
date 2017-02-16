@@ -14,7 +14,7 @@ You can fork my diray or fork [leonids](http://github.com/renyuanz/leonids/) to 
 
 The MIT License (MIT)
 
-Copyright (c) 2015~2016 cody1991
+Copyright (c) 2017~2017 cody1991
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
