@@ -15,8 +15,10 @@
       display: table;
       clear: both;
     }
+    ul {
+      padding-left: 20px;
+    }
   }
-
   .archive-title {
     position: relative;
     margin: 2em auto 1em;
@@ -36,8 +38,6 @@
       }
     }
   }
-
-
   ul {
     list-style: none;
     li {
