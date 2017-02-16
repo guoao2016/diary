@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Day 11 python tutorial
+title: python tutorial
 excerpt: ""
 categories: [python]
 comments: true

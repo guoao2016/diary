@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Day 12 intro to vue
+title: intro to vue
 excerpt: ""
 categories: [vue]
 comments: true

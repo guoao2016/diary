@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Day 10 eloquentjavascript
+title: eloquentjavascript-10
 excerpt: ""
 categories: [eloquentjavascript]
 comments: true
