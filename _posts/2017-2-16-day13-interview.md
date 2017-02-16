@@ -63,10 +63,7 @@ image:
 
 ---
 
-最后会给出对于上面反思，需要补补的地方的学习链接
-
-waiting...
-
+会给出对于上面反思，需要补补的地方的学习记录
 ---
 
 最后贴出腾讯面试官对我的评价，还是蛮用心的
@@ -95,3 +92,57 @@ waiting...
 2. 前端知识还可以进一步深入
 3. 缺乏大型项目经验
 ```
+
+---
+
+### webpack
+
+#### 什么是 webpack
+
+[webpack](https://webpack.github.io/) 是一个 `module bundler` 模块打包工具。模块是平时的前端开发用到的一些前端资源，比如 `JavaScript` `CSS` 图片等文件，`webpack` 把这些资源文件称为模块
+
+`webpack` 支持 `AMD` 和 `CommonJS` ，以及一些其他模块系统，兼容多种 `JavaScript` 书写规范，可以处理模块间的依赖关系，并且有更加强大的 `JavaScript` 模块化功能，能对静态资源进行统一的管理以及打包发布
+
+![](https://webpack.github.io/assets/what-is-webpack.png)
+
+很多地方都替代了原来的 `Grunt` 和 `Gulp` ，因为 `webpack` 能编译打包 `CSS` ，做 `CSS` 预处理，对 `JavaScript` 进行编译，打包图片，代码压缩等等
+
+
+
+#### 为什么使用 webpack
+
+* 1、 对 `CommonJS` `AMD` `ES6` 做了兼容
+
+* 2、 对 `JavaScript` `CSS` 和图片资源都支持打包
+
+* 3、 串联式模块加载器以及插件机制，让其具有更好的灵活性和扩展性，比如对 `CoffeeScript` `ES6` `Vue` 的支持
+
+* 4、 有独立的配置文件 `webpack.config.js`
+
+* 5、 具有将代码切割成不同的 `chunk` 实现按需加载 降低初始化时间 
+
+* 6、 支持 `SourceUrls` 和 `SourceMap` ，方便调试
+
+* 7、 具有强大的 `Plugin` 借口，大多是内部插件，使用起来比较灵活
+
+* 8、 使用异步 `IO` 并且具有多级缓存，使得 `webpack` 很快且编译上更加快
+
+`webpack` 经常和 `spa` 应用一起使用，比如 `Vue` 和 `React` ，单页应用如果有多个页面，用户只要下载对应页面的代码，访问另外一个页面的时候不需要下载通用的代码
+
+#### 第二版本：
+
+时下比较流行的模块加载器兼打包工具，能把各种资源，比如 `JavaScript` 代码，样式，比如 `less` `sass` ，图片作为模块来进行分析，压缩，合并和打包
+
+现在网页的功能越来越多，拥有者复杂的 `JavaScript` ，一大堆的依赖包等资源，我们在开发的时候会有以下问题：
+
+* 1、 多次加载同一个库
+
+* 2、 依赖加载混乱
+
+* 3、 不时引入多余的 `CSS` 和 `JavaScript` 代码或者文件
+
+* 4、 不方便资源优化
+
+`wepback` 轻易处理上面的问题，通过 `JavaScript` 来管理模块依赖和加载顺序
+
+后面是简单的使用教程，参考 [webpack简单入门](http://ghmagical.com/article/page/id/4eMcmI9QBSmK) 
