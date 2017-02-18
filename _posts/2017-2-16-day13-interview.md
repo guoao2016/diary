@@ -11,6 +11,8 @@ image:
   creditlink: https://unsplash.com/photos/SIOdjcYotms
 ---
 
+(2017.2.18) 幸福来得太突然，今天腾讯那边的 `offer` 可以发放给我了，本来以为要写很长一段的求职辛酸史，就这样夭折了。周知。
+
 今天去了一家腾讯控股子公司（从头到尾不知道公司名字哈哈）面试了，面试结果不太好，但是也是开年后的第一次面试，热身一下。因为是好基友的好基友内推的，反馈如下图：
 
 ![](http://okwtb01kd.bkt.clouddn.com/diary-13-1.png)
