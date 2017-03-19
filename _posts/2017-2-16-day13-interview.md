@@ -5,10 +5,6 @@ excerpt: ""
 categories: [interview]
 comments: true
 tags: interview
-image:
-  feature: https://images.unsplash.com/photo-1475503572774-15a45e5d60b9?dpr=2&auto=format&fit=crop&w=767&h=511&q=80&cs=tinysrgb&crop=
-  credit: Natalya Zaritskaya
-  creditlink: https://unsplash.com/photos/SIOdjcYotms
 ---
 
 (2017.2.18) 幸福来得太突然，今天腾讯那边的 `offer` 可以发放给我了，本来以为要写很长一段的求职辛酸史，就这样夭折了。周知。

@@ -5,10 +5,6 @@ excerpt: ""
 categories: [vue]
 comments: true
 tags: vue
-image:
-  feature: https://images.unsplash.com/photo-1475511522384-48b3ad92b287?dpr=2&auto=compress,format&fit=crop&w=767&h=431&q=80&cs=tinysrgb&crop=
-  credit: Alper Ergin
-  creditlink: https://unsplash.com/photos/1z2pC2vuX4I
 ---
 
 学习一个系列的 `Vue` 教程，基础的 `Vue` 知识其实自己掌握的差不多，倒是它贴出来的案例挺有趣的

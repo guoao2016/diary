@@ -5,10 +5,6 @@ excerpt: ""
 categories: [eloquentjavascript]
 comments: true
 tags: JavaScript
-image:
-  feature: https://images.unsplash.com/photo-1415304282915-d001ddefc7d7?dpr=2&auto=format&fit=crop&w=767&h=511&q=80&cs=tinysrgb&crop=
-  credit: Felipe Santana
-  creditlink: https://unsplash.com/photos/NcWOe5wXvew
 ---
 
 还是继续 `eloquentjavascript` 书本的学习
