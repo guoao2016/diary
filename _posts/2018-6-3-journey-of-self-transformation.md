@@ -9,7 +9,11 @@ tags: diary
 
 始于 2018 / 06 / 04 ， 看到一个减肥以后完全变了一个人的妹纸 ， 自己也想体验下哈哈哈 ~
 
-好几天没有喝快乐肥宅水了 （还是觉得百事比可乐好喝。。。）：
+周末看了下 《七号房的礼物》 《巴霍巴利王》 1和2，感觉看下电影消遣下还是挺有意思的
+
+称了下体重 惊了 虽然和上次体检差不多 不过还是觉得太胖了。。。唉
+
+好几天没有喝快乐肥宅水了 （还是觉得百事比可乐好喝。。。）
 
 <a href="http://okwtb01kd.bkt.clouddn.com/happykele.jpg" data-lightbox="unsplash"><img data-src="http://okwtb01kd.bkt.clouddn.com/happykele.jpg"></a>
 
@@ -19,7 +23,11 @@ tags: diary
 
 悦跑圈的记录，最新排最上吧
 
-感觉这两天的记录有毒，选的室外跑实际上是市内跑，速度距离什么的都有错误？？
+6月9号换了安卓机，调成室内跑数据又正常了，差点怀疑人生
+
+感觉这两天的记录有毒，选的室外跑实际上是室内跑，速度距离什么的都有错误？？
+
+<a href="http://okwtb01kd.bkt.clouddn.com/sport/sport-180609.jpg" data-lightbox="unsplash"><img data-src="http://okwtb01kd.bkt.clouddn.com/sport/sport-180609.jpg"></a>
 
 <a href="http://okwtb01kd.bkt.clouddn.com/sport/sport-180605.jpg" data-lightbox="unsplash"><img data-src="http://okwtb01kd.bkt.clouddn.com/sport/sport-180605.jpg"></a>
 
