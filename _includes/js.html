@@ -1,5 +1,24 @@
 <!-- <script type="text/javascript" src="{{ site.url }}/js/jquery-2.1.4.min.js"></script> -->
 <script async src="{{ site.url }}/static/lightbox2/js/lightbox-plus-jquery.min.js"></script>
+<script>
+(function(w, d){
+	var b = d.getElementsByTagName('body')[0];
+	var s = d.createElement("script"); s.async = true;
+	var v = !("IntersectionObserver" in w) ? "8.7.1" : "10.5.2";
+	s.src = "https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/" + v + "/lazyload.min.js";
+	w.lazyLoadOptions = {}; // Your options here. See "recipes" for more information about async.
+	b.appendChild(s);
+}(window, document));
+
+window.onload = () => {
+	let myLazyLoad = new LazyLoad();
+
+	lightbox.option({
+		fadeDuration: 0,
+		imageFadeDuration: 0
+  })
+}
+</script>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 <!-- <script type="text/javascript" src="{{ site.url }}/js/main.js"></script> -->

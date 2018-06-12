@@ -228,24 +228,3 @@ tags: pictures
 <a href="http://p6y9wyt8g.bkt.clouddn.com/xza3lKa8Pk8.jpg" data-lightbox="unsplash"><img data-src="http://p6y9wyt8g.bkt.clouddn.com/xza3lKa8Pk8.jpg"></a>
 
 <a href="http://p6y9wyt8g.bkt.clouddn.com/z1L6VcqLZgc.jpg" data-lightbox="unsplash"><img data-src="http://p6y9wyt8g.bkt.clouddn.com/z1L6VcqLZgc.jpg"></a>
-
-
-<script>
-(function(w, d){
-	var b = d.getElementsByTagName('body')[0];
-	var s = d.createElement("script"); s.async = true;
-	var v = !("IntersectionObserver" in w) ? "8.7.1" : "10.5.2";
-	s.src = "https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/" + v + "/lazyload.min.js";
-	w.lazyLoadOptions = {}; // Your options here. See "recipes" for more information about async.
-	b.appendChild(s);
-}(window, document));
-
-window.onload = () => {
-	let myLazyLoad = new LazyLoad();
-
-	lightbox.option({
-		fadeDuration: 0,
-		imageFadeDuration: 0
-  })
-}
-</script>

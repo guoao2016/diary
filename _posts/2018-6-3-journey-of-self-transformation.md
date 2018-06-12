@@ -7,7 +7,11 @@ comments: true
 tags: diary
 ---
 
-始于 2018 / 06 / 04 ， 看到一个减肥以后完全变了一个人的妹纸 ， 自己也想体验下哈哈哈 ~
+##### 始于 2018 / 06 / 04 ， 看到一个减肥以后完全变了一个人的妹纸 ，瘦了好多也很好看， 自己也想体验下哈哈哈 ~
+
+9号晚上跑完步称下体重，11号晚上跑完步又称了一下，居然瘦了四斤，惊了，四舍五入就是一百斤了 ლ(′◉❥◉｀ლ)
+
+---
 
 周末看了下 《七号房的礼物》 《巴霍巴利王》 1和2，感觉看下电影消遣下还是挺有意思的
 
@@ -23,32 +27,28 @@ tags: diary
 
 悦跑圈的记录，最新排最上吧
 
-6月9号换了安卓机，调成室内跑数据又正常了，差点怀疑人生
+第一次一口气跑了八公里，是最好的成绩了
 
-感觉这两天的记录有毒，选的室外跑实际上是室内跑，速度距离什么的都有错误？？
+<a href="http://okwtb01kd.bkt.clouddn.com/sport/sport-180609.jpg" data-lightbox="unsplash"><img data-src="http://okwtb01kd.bkt.clouddn.com/sport/sport-180611.jpg"></a>
+
+2018.06.11
+
+---
+
+6月9号换了安卓机，调成室内跑数据又正常了，差点怀疑人生
 
 <a href="http://okwtb01kd.bkt.clouddn.com/sport/sport-180609.jpg" data-lightbox="unsplash"><img data-src="http://okwtb01kd.bkt.clouddn.com/sport/sport-180609.jpg"></a>
 
+2018.06.09
+
+---
+
+感觉这两天的记录有毒，选的室外跑实际上是室内跑，速度距离什么的都有错误？？
+
 <a href="http://okwtb01kd.bkt.clouddn.com/sport/sport-180605.jpg" data-lightbox="unsplash"><img data-src="http://okwtb01kd.bkt.clouddn.com/sport/sport-180605.jpg"></a>
+
+2018.06.05
 
 <a href="http://okwtb01kd.bkt.clouddn.com/sport/sport-180604.jpg" data-lightbox="unsplash"><img data-src="http://okwtb01kd.bkt.clouddn.com/sport/sport-180604.jpg"></a>
 
-<script>
-(function(w, d){
-	var b = d.getElementsByTagName('body')[0];
-	var s = d.createElement("script"); s.async = true;
-	var v = !("IntersectionObserver" in w) ? "8.7.1" : "10.5.2";
-	s.src = "https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/" + v + "/lazyload.min.js";
-	w.lazyLoadOptions = {}; // Your options here. See "recipes" for more information about async.
-	b.appendChild(s);
-}(window, document));
-
-window.onload = () => {
-	let myLazyLoad = new LazyLoad();
-
-	lightbox.option({
-		fadeDuration: 0,
-		imageFadeDuration: 0
-  })
-}
-</script>
+2018.06.04
