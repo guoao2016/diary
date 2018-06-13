@@ -9,7 +9,15 @@ tags: diary
 
 ##### 始于 2018 / 06 / 04 ， 看到一个减肥以后完全变了一个人的妹纸 ，瘦了好多也很好看， 自己也想体验下哈哈哈 ~
 
+最近看下 《硬派健身》 更加科学的减肥
+
+2018.06.13
+
+---
+
 9号晚上跑完步称下体重，11号晚上跑完步又称了一下，居然瘦了四斤，惊了，四舍五入就是一百斤了 ლ(′◉❥◉｀ლ)
+
+2018.06.12
 
 ---
 
@@ -17,19 +25,31 @@ tags: diary
 
 称了下体重 惊了 虽然和上次体检差不多 不过还是觉得太胖了。。。唉
 
+2018.06.11
+
+---
+
 好几天没有喝快乐肥宅水了 （还是觉得百事比可乐好喝。。。）
 
 <a href="http://okwtb01kd.bkt.clouddn.com/happykele.jpg" data-lightbox="unsplash"><img data-src="http://okwtb01kd.bkt.clouddn.com/happykele.jpg"></a>
 
 手机上各种娱乐的 APP 都卸载了，留下个网易云音乐，微信读书，微信和 QQ ，花更多的时间来读书吧，让自己更加有趣 （有趣：别人觉得你有趣，自己觉得自己有趣。感觉读书是个很好的途径，自己喜欢读书，乐在其中，知道的东西多了，能侃侃而谈，让别人也觉得我有趣吧）
 
----
+2018.06.04
+
+### 悦跑圈
 
 悦跑圈的记录，最新排最上吧
 
+<a href="http://okwtb01kd.bkt.clouddn.com/sport/sport-180612.jpg" data-lightbox="unsplash"><img data-src="http://okwtb01kd.bkt.clouddn.com/sport/sport-180612.jpg"></a>
+
+2018.06.12
+
+---
+
 第一次一口气跑了八公里，是最好的成绩了
 
-<a href="http://okwtb01kd.bkt.clouddn.com/sport/sport-180609.jpg" data-lightbox="unsplash"><img data-src="http://okwtb01kd.bkt.clouddn.com/sport/sport-180611.jpg"></a>
+<a href="http://okwtb01kd.bkt.clouddn.com/sport/sport-180611.jpg" data-lightbox="unsplash"><img data-src="http://okwtb01kd.bkt.clouddn.com/sport/sport-180611.jpg"></a>
 
 2018.06.11
 
