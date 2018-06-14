@@ -41,6 +41,14 @@ tags: diary
 
 悦跑圈的记录，最新排最上吧
 
+一口气跑了十公里还多 ~~~ 最后如果不是太口渴还能继续跑哈哈哈 不错不错~
+
+<a href="http://okwtb01kd.bkt.clouddn.com/sport/sport-180613.jpg" data-lightbox="unsplash"><img data-src="http://okwtb01kd.bkt.clouddn.com/sport/sport-180613.jpg"></a>
+
+2018.06.13
+
+---
+
 <a href="http://okwtb01kd.bkt.clouddn.com/sport/sport-180612.jpg" data-lightbox="unsplash"><img data-src="http://okwtb01kd.bkt.clouddn.com/sport/sport-180612.jpg"></a>
 
 2018.06.12
