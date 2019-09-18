@@ -37,7 +37,8 @@ owner:
   job: "腾讯Web开发工程师"
   bio: "爱前端，爱生活<br/>记录学习中的点点滴滴"
   email: 
-  disqus-shortname: cody1991
+  valine:
+    enabled: true
   twitter: cody19910828
   facebook: profile.php?id=100025253123864
   google:

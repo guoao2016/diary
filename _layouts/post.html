@@ -41,6 +41,10 @@ layout: default
   </article>
 </div>
 
+{% if  site.owner.valine and site.owner.valine.enabled == true and page.comments == true %}
+{% include valine.html %}
+{% endif %}
+
 {% include nav.html %}
 
 <div class="share-buttons">
@@ -63,8 +67,3 @@ layout: default
     </li>
   </ul>
 </div><!-- end share-buttons -->
-
-{% if site.owner.disqus-shortname and page.comments == true %}
-<div id="disqus_thread"></div>
-{% include disqus.html %}
-{% endif %}
