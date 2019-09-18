@@ -2,9 +2,9 @@
 layout: post
 title: 看看坚持下，完成新的自我？
 excerpt: ""
-categories: [diary]
+categories: 
 comments: true
-tags: diary
+tags: 
 ---
 
 ##### 始于 2018 / 06 / 04 ， 看到一个减肥以后完全变了一个人的妹纸 ，瘦了好多也很好看， 自己也想体验下哈哈哈 ~
