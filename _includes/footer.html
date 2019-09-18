@@ -1,5 +1,8 @@
 <footer>
   <div>
+      {% if  site.owner.valine and site.owner.valine.enabled == true %}
+      {% include valine.html %}
+      {% endif %}
     <span id="busuanzi_container_site_pv" class="site-pv">
       网站到访数: <span id="busuanzi_value_site_pv"></span> • 
     </span>

@@ -3,7 +3,6 @@ layout: post
 title: 一些博客的收集
 excerpt: ""
 categories: 
-comments: true
 tags: blog
 ---
 

@@ -3,7 +3,6 @@ layout: post
 title: 网站更新记录
 excerpt: ""
 categories: 
-comments: true
 tags: blog
 ---
 
