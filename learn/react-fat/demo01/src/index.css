@@ -1,0 +1,41 @@
+.input {
+  border: 1px solid skyblue
+}
+
+.show {
+  opacity: 1;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+}
+
+.hide {
+  opacity: 0;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+}
+
+.boss-text-enter {
+  opacity: 0;
+}
+
+.boss-text-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms;
+}
+
+.boss-text-enter-done {
+  opacity: 1;
+}
+
+
+.boss-text-exit {
+  opacity: 1;
+}
+
+.boss-text-exit-active {
+  opacity: 0;
+}
+
+.boss-text-exit-done {
+  opacity: 0;
+}
