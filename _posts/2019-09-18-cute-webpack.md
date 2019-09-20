@@ -526,3 +526,85 @@ Entrypoint main = main.8c1ddc9a6aa25fd44cd1.css main.4a6e049583b2019fe0bb.js
 ```
 
 可以看到 `JavaScript` 文件是没有任何变化的
+
+# 动态引入打包文件
+
+我们会发现前面的 `demo` 报错找不到 `css` `JavaScript` 文件了，我们不可能每次打包新的文件名出来，手动替换文件路径，需要用到 `html-webpack-plugin` 插件
+
+```bash
+yarn add html-webpack-plugin -D
+```
+
+在配置文件中引入这个插件，更多的配置参考 https://github.com/jantimon/html-webpack-plugin
+
+```js
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+// plugins
+
+new HtmlWebpackPlugin({
+  title: "cute webpack", // 页面标题
+  filename: "index.html", // 生成的文件名,
+  minify: {
+    // 压缩配置
+    collapseWhitespace: true, // 移除空格
+    removeComments: true, // 移除注释
+    removeAttributeQuotes: true // 移除双引号
+  }
+});
+```
+
+运行构建后生成了下面的 `dist/index.html` 文件
+
+```html
+<!DOCTYPE html><html><head><meta charset=UTF-8><title>cute webpack</title><link href=main.8c1ddc9a6aa25fd44cd1.css rel=stylesheet></head><body><script type=text/javascript src=main.4a6e049583b2019fe0bb.js></script></body></html>
+```
+
+我们也可以删除掉之前的 `index.html` 文件了
+
+# 清理目录
+
+我们发现每次修改文件之后生成的文件随着 `contenthash` 的不同，会堆积越来越多过时的文件，我们可以使用插件 `clean-webpack-plugin` 来清理他们
+
+```
+yarn add clean-webpack-plugin -D
+```
+
+引入和使用插件
+
+```js
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
+plugins: [new CleanWebpackPlugin()];
+```
+
+更多可以参考 https://github.com/johnagan/clean-webpack-plugin
+
+# 图片处理
+
+我们如果在 `css` 文件引入一个图片，会导致构建报错，因为我们还没有去处理图片模块
+
+```css
+body {
+  background-image: url(../images/logo.png);
+}
+```
+
+需要使用到 `file-loader`
+
+```bash
+yarn add file-loader -D
+```
+
+加入图片的 `module.rules` 处理
+
+```js
+{
+  test: /\.(png|svg|jpg|jpeg|gif)$/,
+  use: [{
+    loader: 'file-loader'
+  }]
+}
+```
+
+图片成功被使用
