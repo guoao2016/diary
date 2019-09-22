@@ -717,3 +717,244 @@ url-loader works like file-loader, but can return a DataURL if the file is small
   ]
 },
 ```
+
+# 配置提取和合并
+
+我们可以使用 `webpack-merge` 合并 `webpack` 配置
+
+```bash
+yarn add webpack-merge -D
+```
+
+随后我们把原来的配置文件一分为三
+
+- webpack.common.js 公共配置文件
+- webpack.prod.js 发布环境配置文件
+- webpack.dev.js 开发环境配置文件
+
+之后在修改 `package.json` 的脚本
+
+```js
+"scripts": {
+  "build": "npx webpack --config webpack.dev.js",
+  "dist": "npx webpack --config webpack.prod.js"
+},
+```
+
+接下来就是重新编写这三个文件里面的内容了
+
+在此之前我们先添加 `babel-loader` 相关的配置，可以将 `es6` 以上的代码转成 `es5` 代码
+
+```bash
+yarn add babel-loader @babel/core @babel/preset-env -D
+```
+
+配置文件添加新的模块加载配置，具体参考 https://webpack.js.org/loaders/babel-loader
+
+```js
+{
+  test: /\.js$/,
+  use: [
+    {
+      loader: "babel-loader",
+      options: {
+        presets: ["@babel/preset-env"]
+      }
+    }
+  ],
+  exclude: /(node_modules)/
+},
+```
+
+我们抽离公共部分， `webpack.common.js` 文件如下
+
+```js
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    filename: "main.[contenthash].js",
+    path: path.resolve(__dirname, "dist")
+  },
+  module: {
+    noParse: content => {
+      return /jquery|lodash/.test(content);
+    },
+    rules: [
+      {
+        test: /\.js$/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env"]
+            }
+          }
+        ],
+        exclude: /(node_modules)/
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        include: [path.resolve(__dirname, "src")],
+        use: [
+          {
+            loader: "file-loader"
+          }
+        ]
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        include: [path.resolve(__dirname, "src")],
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 10000
+            }
+          },
+          {
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: { progressive: true, quality: 65 },
+              optipng: { enabled: false },
+              pngquant: { quality: [0.65, 0.9], speed: 4 },
+              gifsicle: { interlaced: false },
+              webp: { quality: 75 }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: "cute webpack", // 页面标题
+      filename: "index.html", // 生成的文件名,
+      template: path.resolve(__dirname, "src", "templates", "index.html"),
+      minify: {
+        // 压缩配置
+        collapseWhitespace: true, // 移除空格
+        removeComments: true, // 移除注释
+        removeAttributeQuotes: true // 移除双引号
+      }
+    })
+  ]
+};
+```
+
+新生成的 `webpack.dev.js` 配置如下
+
+```js
+const path = require("path");
+const merge = require("webpack-merge");
+const common = require("./webpack.common.js");
+
+module.exports = merge(common, {
+  mode: "development",
+  output: {
+    filename: "main.js",
+    path: path.resolve(__dirname, "dist")
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(le|c)ss$/,
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              ident: "postcss",
+              sourceMap: true,
+              plugins: loader => [require("autoprefixer")()]
+            }
+          },
+          {
+            loader: "less-loader",
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      }
+    ]
+  }
+});
+```
+
+而 `webpack.prod.js` 的内容如下
+
+```js
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const merge = require("webpack-merge");
+const common = require("./webpack.common.js");
+
+module.exports = merge(common, {
+  mode: "production",
+  output: {
+    filename: "main.[contenthash].js",
+    path: path.resolve(__dirname, "dist")
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(le|c)ss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              ident: "postcss",
+              sourceMap: true,
+              plugins: loader => [require("autoprefixer")()]
+            }
+          },
+          {
+            loader: "less-loader",
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      }
+    ]
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
+      chunkFilename: "[id].[contenthash].css"
+    }),
+    new OptimizeCssAssetsPlugin(),
+    new UglifyJsPlugin({
+      cache: true,
+      parallel: true, // 并行压缩
+      sourceMap: true // 启用 sourceMap
+    })
+  ]
+});
+```
+
+如今我们运行 `yarn build` 和 `yarn dist` 可以根据不同的环境构建不同的产物
