@@ -545,6 +545,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 new HtmlWebpackPlugin({
   title: "cute webpack", // 页面标题
   filename: "index.html", // 生成的文件名,
+  template: path.resolve(__dirname, "src", "templates", "index.html"),
   minify: {
     // 压缩配置
     collapseWhitespace: true, // 移除空格
@@ -554,10 +555,27 @@ new HtmlWebpackPlugin({
 });
 ```
 
+我们新建一个模版文件
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <div class="vue"></div>
+  </body>
+</html>
+```
+
 运行构建后生成了下面的 `dist/index.html` 文件
 
 ```html
-<!DOCTYPE html><html><head><meta charset=UTF-8><title>cute webpack</title><link href=main.8c1ddc9a6aa25fd44cd1.css rel=stylesheet></head><body><script type=text/javascript src=main.4a6e049583b2019fe0bb.js></script></body></html>
+<!DOCTYPE html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><title>cute webpack</title><link href=main.f0f0c41b90c061c2b1f7.css rel=stylesheet></head><body><div class=vue></div><script type=text/javascript src=main.7546f022288fd2731426.js></script></body></html>
 ```
 
 我们也可以删除掉之前的 `index.html` 文件了
@@ -608,3 +626,94 @@ yarn add file-loader -D
 ```
 
 图片成功被使用
+
+# 图片优化
+
+我们一般需要压缩优化图片，可以使用 `image-webpack-loader` 模块
+
+```bash
+yarn add image-webpack-loader -D
+```
+
+更多的配置可以参考 https://github.com/tcoopman/image-webpack-loader , 如今图片的 `loader` 修改成下面这样
+
+```js
+{
+  test: /\.(png|svg|jpg|jpeg|gif)$/,
+  include: [path.resolve(__dirname, "src")],
+  use: [
+    {
+      loader: "file-loader"
+    },
+    {
+      loader: "image-webpack-loader",
+      options: {
+        mozjpeg: { progressive: true, quality: 65 },
+        optipng: { enabled: false },
+        pngquant: { quality: [0.65, 0.9], speed: 4 },
+        gifsicle: { interlaced: false },
+        webp: { quality: 75 }
+      }
+    }
+  ]
+},
+```
+
+尝试了一张 `4.6M` 的 `jpeg` 图片，压缩处理以后只有 `475kb`
+
+# base64 图片处理
+
+和 `file-loader` 类似的 `url-loader`，可以把 `url` 对应的地址文件转成 `base64` 的 `DataUrl`
+
+```bash
+yarn add url-loader -D
+```
+
+我们可以把原来的配置的 `file-loader` 修改成 `url-loader`
+
+```js
+{
+  test: /\.(png|svg|jpg|jpeg|gif)$/,
+  include: [path.resolve(__dirname, "src")],
+  use: [
+    {
+      loader: "url-loader",
+      options: {
+        limit: 10000
+      }
+    },
+    {
+      loader: "image-webpack-loader",
+      options: {
+        mozjpeg: { progressive: true, quality: 65 },
+        optipng: { enabled: false },
+        pngquant: { quality: [0.65, 0.9], speed: 4 },
+        gifsicle: { interlaced: false },
+        webp: { quality: 75 }
+      }
+    }
+  ]
+},
+```
+
+重新运行 `yarn build` 会发现小图片被转成了 `base64`，而大图片还是 `url` 地址，这个是通过 配置项目里面的 `limit` 来决定的，更多配置可以参考 https://github.com/webpack-contrib/url-loader，按照官方的解释就是
+
+```
+url-loader works like file-loader, but can return a DataURL if the file is smaller than a byte limit.
+```
+
+# 字体处理
+
+字体的引入和图片差不多，因为也是按照文件引入的，配置如下
+
+```js
+{
+  test: /\.(woff|woff2|eot|ttf|otf)$/,
+  include: [path.resolve(__dirname, "src")],
+  use: [
+    {
+      loader: "file-loader"
+    }
+  ]
+},
+```
