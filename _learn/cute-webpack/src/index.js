@@ -5,3 +5,4 @@ console.log(_.join(["hello", "webpack"]));
 
 let a = 100;
 console.log(a);
+console.log("hello world");

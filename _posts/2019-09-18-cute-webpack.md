@@ -6,7 +6,7 @@ categories: 学习
 tags: webpack
 ---
 
-参考 https://juejin.im/post/5d518b4de51d4561cc25f013
+参考 [cute-webpack](https://juejin.im/post/5d518b4de51d4561cc25f013){:target="\_blank"}
 
 # 初始化
 
@@ -958,3 +958,93 @@ module.exports = merge(common, {
 ```
 
 如今我们运行 `yarn build` 和 `yarn dist` 可以根据不同的环境构建不同的产物
+
+# JavaScript sourceMap
+
+我们平时打印调试工具也看不到出错的位置在哪里，可以在开发环境下添加 `JavaScript sourceMap`
+
+```js
+devtool: 'inline-source-map',
+```
+
+重新打包，可以发现调试信息在源文件的第几行了
+
+另外我们每次更新文件的时候都要重新跑一次 `npm run build` 非常麻烦，我们可以后面加上 `--watch` ，每次更新的时候自动重新打包
+
+我们这里顺便把开发环境的命令改成 `dev`，发布环境的命令改成 `build`
+
+```js
+"scripts": {
+  "dev": "npx webpack --config webpack.dev.js --watch",
+  "build": "npx webpack --config webpack.prod.js"
+},
+```
+
+# 热更新
+
+我们可以使用 `webpack-dev-server` 在本地开启一个服务器，监听文件的变化，实现自动编译刷新浏览器
+
+```bash
+yarn add webpack-dev-server -D
+```
+
+接下来修改一下 `dev` 配置文件
+
+```js
+const webpack = require("webpack");
+
+// 新增 devServer 配置项
+
+devServer: {
+  contentBase: path.join(__dirname, "dist"),
+  compress: true,
+  hot: true,
+  overlay: true,
+  open: true,
+  publicPath: "/",
+  host: "localhost",
+  port: "1200"
+},
+
+// 新增插件
+
+plugins: [
+  new webpack.NamedModulesPlugin(), // 更容易查看（patch）的以来
+  new webpack.HotModuleReplacementPlugin() // 替换插件
+]
+```
+
+修改一下 `npm scripts`
+
+```js
+"scripts": {
+  "dev": "npx webpack-dev-server  --config webpack.dev.js",
+  "build": "npx webpack --config webpack.prod.js"
+},
+```
+
+配置项的一些简单说明
+
+```js
+{
+  contentBase: path.join(__dirname, 'dist'), //本地服务器所加载的页面所在的目录
+  clinetLogLevel: 'warning', // 可能值有 none, error, warning 或者 info (默认值)
+  hot: true,// 启动热更新替换特性，需要配合 webpack.HotModuleReplacementPlugin 插件
+  host: '0.0.0.0', // 启动服务器的 host
+  port: 7000,      // 端口号
+  compress: true,  // 为所有服务启用gzip压缩
+  overlay: true,  // 在浏览器中显示全屏覆盖
+  stats: "errors-only" ,// 只显示包中的错误
+  open: true, // 启用“打开”后，dev服务器将打开浏览器。
+  proxy: {   // 设置代理
+    "/api": {
+      target: "http://localhost:3000",
+      pathRewrite: {"^/api" : "/mock/api"}
+    }
+  }
+}
+```
+
+我们如今使用 `yarn dev` 的时候会在编译完成以后打开一个浏览器窗口，并且在我们更新文件以后会重新编译刷新浏览器，非常方便
+
+另外简单说一下上面的 `proxy` 配置项，如果我们发起一个请求 `/api/getUserInfo` 就会被转发到 `http://localhost:3000/mock/api/getUserInfo`，这个就是本地的代理服务器的作用
