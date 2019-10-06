@@ -11,7 +11,8 @@ module.exports = {
     }
   },
   externals: {
-    jquery: "jQuery"
+    jquery: "jQuery",
+    lodash: "_"
   },
   module: {
     noParse: content => {

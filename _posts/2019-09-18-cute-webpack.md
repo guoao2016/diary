@@ -1140,3 +1140,45 @@ externals: {
 ```
 
 正常编译打包
+
+# 打包分析报表及优化总结
+
+我们可以使用 `webpack-bundle-analyzer` 插件，来对打包后的文件进行数据分析，从来找到项目优化的方向，它使用交互式可缩放树形图可视化 `webpack` 输出文件的大小
+
+```bash
+yarn add webpack-bundle-analyzer -D
+```
+
+它也只用在 `dev` 环境，所以我们在 `webpack.dev.js` 添加下面的代码
+
+```js
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
+
+{
+  plugins: [new BundleAnalyzerPlugin()];
+}
+```
+
+重新执行 `yarn dev` 的时候，打开了我们页面以外还会打开数据报表分析的页面，我们就可以看清楚我们包内都包含什么模块，准确看出每个模块的组成，最后着手优化项目
+
+在我们 `webpack-bundle-analyzer` 页面可以看到 `lodash` 是占了最大头的
+
+我们通过 `CDN` 引入它，然后修改 `webpack` 配置
+
+```html
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+```
+
+```js
+externals: {
+  jquery: "jQuery",
+  lodash: "_"
+},
+```
+
+可以发现 `lodash` 已经不在里面了
+
+更多的使用可以参考 https://github.com/webpack-contrib/webpack-bundle-analyzer
+
+end.
