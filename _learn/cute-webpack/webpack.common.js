@@ -4,6 +4,15 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+      styles: path.resolve(__dirname, "src", "styles")
+    }
+  },
+  externals: {
+    jquery: "jQuery"
+  },
   module: {
     noParse: content => {
       return /jquery|lodash/.test(content);

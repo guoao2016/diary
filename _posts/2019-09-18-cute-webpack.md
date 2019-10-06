@@ -1048,3 +1048,95 @@ plugins: [
 我们如今使用 `yarn dev` 的时候会在编译完成以后打开一个浏览器窗口，并且在我们更新文件以后会重新编译刷新浏览器，非常方便
 
 另外简单说一下上面的 `proxy` 配置项，如果我们发起一个请求 `/api/getUserInfo` 就会被转发到 `http://localhost:3000/mock/api/getUserInfo`，这个就是本地的代理服务器的作用
+
+# 解析模块扩展名和别名
+
+我们可以使用 `resolve` 来配置模块解析方式
+
+比如 `import _ from 'lodash'` ，其实是加载解析了 `lodash.js` 文件。
+
+该配置就是用来设置加载和解析的方式。
+
+## `resolve.alias`
+
+我们引入一些文件时，需要写很长的路径，这样使得代码更加复杂
+
+`resolve.alias`，创建 `import` 或 `require` 的别名，使模块引入更加简单
+
+我们在 `webpack.common.js` 添加下面的配置
+
+```js
+resolve: {
+  alias: {
+    "@": path.resolve(__dirname, "src")
+  }
+},
+```
+
+这个之后 `@` 来替代 `path.resolve(__dirname, 'src')`
+
+我们新增 `src/javascript/cody.js` 文件，写入
+
+```js
+const name = "codytang";
+export { name };
+```
+
+然后可以在 `src/index.js` 引入
+
+```js
+import { name } from "@/javascript/cody";
+console.log(name);
+```
+
+我们可以添加更多其他的别名
+
+```js
+resolve: {
+  alias: {
+    "@": path.resolve(__dirname, "src"),
+    styles: path.resolve(__dirname, "src", "styles")
+  }
+},
+```
+
+如今在 `src/index.js` 只要这样就可以引入样式文件了
+
+```js
+import "styles/main.css";
+import "styles/page.less";
+```
+
+更多的配置参考 https://www.webpackjs.com/configuration/resolve/
+
+# 配置外部拓展
+
+当我们使用 `CDN` 引入 `jQuery` 时，我们并不想把它也打包到项目中，我们就可以配置 `externals` 外部拓展的选项，来将这些不需要打包的模块从输出的 `bundle` 中排除
+
+在 `HTML` 代码中加入
+
+```html
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+```
+
+这个时候如果在 `src/index.js` 引入
+
+```js
+import $ from "jquery";
+```
+
+会有报错信息
+
+```
+Module not found: Error: Can't resolve 'jquery' in './src'
+```
+
+配置
+
+```js
+externals: {
+  jquery: "jQuery"
+},
+```
+
+正常编译打包
