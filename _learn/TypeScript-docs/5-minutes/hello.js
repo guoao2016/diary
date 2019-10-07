@@ -3,12 +3,12 @@ var Student = /** @class */ (function () {
         this.firstName = firstName;
         this.middleInitial = middleInitial;
         this.lastName = lastName;
-        this.fullName = "" + firstName + middleInitial + lastName;
+        this.fullName = firstName + " " + middleInitial + " " + lastName;
     }
     return Student;
 }());
 function greeter(person) {
-    return "Hello, " + person.firstName + " " + person.lastName;
+    return "Hello, " + person.fullName;
 }
 var user = new Student("cody", "M.", "tang");
-document.body.innerHTML = greeter(user);
+console.log(greeter(user));

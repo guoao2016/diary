@@ -1,19 +1,24 @@
 interface Person {
   firstName: string;
   lastName: string;
+  fullName: string;
 }
 
 class Student {
   fullName: string;
-  constructor(public firstName, public middleInitial, public lastName) {
-    this.fullName = `${firstName}${middleInitial}${lastName}`;
+  constructor(
+    public firstName: string,
+    public middleInitial: string,
+    public lastName: string
+  ) {
+    this.fullName = `${firstName} ${middleInitial} ${lastName}`;
   }
 }
 
 function greeter(person: Person) {
-  return `Hello, ${person.firstName} ${person.lastName}`;
+  return `Hello, ${person.fullName}`;
 }
 
 let user = new Student("cody", "M.", "tang");
 
-document.body.innerHTML = greeter(user);
+console.log(greeter(user));
