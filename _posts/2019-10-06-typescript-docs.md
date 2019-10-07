@@ -120,3 +120,78 @@ Expected 1 arguments, but got 0
 不过 `ts` 虽然会告诉你出错的地方，但是最终的 `js` 文件还是被创建出来了，但是可能不会如期运行
 
 ... 未完待续
+
+#### 接口
+
+> 在 TypeScript 里，只在两个类型内部的结构兼容那么这两个类型就是兼容的。 这就允许我们在实现接口时候只要保证包含了接口要求的结构就可以，而不必明确地使用 implements 语句
+
+我们在上面的列子上使用接口来描述一个拥有 `firstName` 和 `lastName` 字段的对象
+
+上面的代码被修改成这样，能正常编译运行
+
+```ts
+interface Person {
+  firstName: string;
+  lastName: string;
+}
+
+function greeter(person: Person) {
+  return `Hello, ${person.firstName} ${person.lastName}`;
+}
+
+let user = {
+  firstName: "cody",
+  lastName: "tang"
+};
+
+document.body.innerHTML = greeter(user);
+```
+
+#### 类
+
+`ts` 支持基于类的面向对象编程，类带有一个构造函数和一些公共字段。 注意类和接口可以一起共作，程序员可以自行决定抽象的级别。
+
+另外在构造函数的参数上使用 `public` 等同于创建了同名的成员变量
+
+我们修改代码如下
+
+```ts
+interface Person {
+  firstName: string;
+  lastName: string;
+}
+
+class Student {
+  fullName: string;
+  constructor(public firstName, public middleInitial, public lastName) {
+    this.fullName = `${firstName}${middleInitial}${lastName}`;
+  }
+}
+
+function greeter(person: Person) {
+  return `Hello, ${person.firstName} ${person.lastName}`;
+}
+
+let user = new Student("cody", "M.", "tang");
+
+document.body.innerHTML = greeter(user);
+```
+
+可以看到编译出来的代码
+
+```js
+var Student = /** @class */ (function() {
+  function Student(firstName, middleInitial, lastName) {
+    this.firstName = firstName;
+    this.middleInitial = middleInitial;
+    this.lastName = lastName;
+    this.fullName = "" + firstName + middleInitial + lastName;
+  }
+  return Student;
+})();
+function greeter(person) {
+  return "Hello, " + person.firstName + " " + person.lastName;
+}
+var user = new Student("cody", "M.", "tang");
+document.body.innerHTML = greeter(user);
+```
