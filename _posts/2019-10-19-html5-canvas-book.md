@@ -1,0 +1,135 @@
+---
+layout: post
+title: 《HTML5 Canvas核心技术 图形、动画与游戏开发》 學習筆記
+excerpt: ""
+categories: 
+tags: 
+---
+
+閱讀 《HTML5 Canvas核心技术 图形、动画与游戏开发》 一書做點學習筆記
+
+# ch1
+
+canvas 的能力是通過 canvas 元素上的 context 上下文對象表現出來的
+
+我們從一個簡單的 hello world 程序開始
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width='600' height='300'></canvas>
+    <script src="index.js"></script>
+</body>
+</html>
+```
+
+```js
+const canvas = document.getElementById('canvas')
+const context = canvas.getContext('2d')
+
+context.font = '38pt Arial'
+context.fillStyle = 'skyblue'
+context.strokeStyle = 'green'
+
+context.fillText('hello world', canvas.width / 2 - 140, canvas.height / 2)
+context.strokeText('hello world', canvas.width / 2 - 140, canvas.height / 2)
+```
+
+html 代碼沒什麼好講的，後面也不會列出來，而 js 代碼部分
+
+* 獲取 canvas 元素
+* 調用 getContext('2d') 獲取繪畫環境變量
+* 使用 繪畫環境變量 繪製
+
+這段代碼設置了 font fillStyle strokeStyle 屬性，然後對文本進行了填充 fillText 和 描邊 strokeText
+
+fillText 使用 fillStyle 屬性填充文字，strokeText 使用 strokeStyle 屬性來描繪字符輪廓
+
+fillStyle strokeStyle 可以是 顏色 漸變色 或者 圖案
+
+fillText strokeText 都需要三個參數：文字，橫坐標和縱座標
+
+另外 canvas 元素上的 width 和 height 必須是整數，不可以帶上 px，默認大小是 300 * 150
+
+---
+
+我們可以通過 canvas 元素上的 width 和 height 控制 canvas 大小，也可以通過 css 的 width 和 height 控制 canvas 大小，但是他們本質上是有區別的
+
+只修改 html 代碼
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            width: 600px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script src="index.js"></script>
+</body>
+
+</html>
+```
+
+canvas 實際上有兩套尺寸，一個是元素本身的大小，一個是元素繪圖表面 drawing surface 大小
+
+元素設置 width 和 height 屬性實際上是同時修改了該元素本身的大小和繪圖表面的大小
+
+通過 css 屬性設置的話只會修改了元素本身的大小，而不影響繪圖表面的大小
+
+所以canvas元素默認是 300 * 150 大小，使用 css 設置了 600 * 300 大小，繪圖面積是沒有變化的，還是默認的 300 * 150，當元素大小和繪圖表面大小不一致的時候，瀏覽器會對繪圖表面進行縮放，讓他符合大小，所以我們第二個例子的繪圖表面會拉伸到 600 * 300 大小
+
+最好是通過 canvas 屬性設置寬高像素，以免出現奇怪的現象
+
+---
+
+canvas 自身的 api 不多
+
+屬性上面已經提到了 width height，方法也提到了 getContext
+
+還有 toDataURL(type,quality) 返回一個數據地址 data url，可設置為 img 的 src 屬性。第一個是圖片類型，可以是 image/jpeg 或者 image/png，默認是 image/png，第二個必須是 0~1.0的 附點數，代表 jepg 的圖片質量
+
+toBlob(callback,type,args...) 生成表示這個 canvas 圖像文件 的 Blob，第一個參數是回調函數，瀏覽器會以一個指向 blob 的參數調用回調函數，第二個也是指定圖片的類型，默認 image/png，第二個必須是 0~1.0的 附點數，代表 jpeg 的圖片質量
+
+---
+
+主要還是要研究 2d 繪畫環境 CanvasRenderingContext2d
+
+屬性 | 描述
+--- | ---
+canvas | 指向繪圖環境對應的 canvas 對象，一般來獲取寬高 context.canvas.width context.canvas.height
+fillstyle | 繪圖環境後續填充使用的顏色或者漸變色和圖案
+font | 繪製文字 fillText strokeText 的時候使用的字體
+globalAlpha | 全局透明度 0~1.0，瀏覽器會在繪製的時候根據每個像素的 alpha 和它相乘
+globalCompsiteOperation | 某個物體繪製在其他物體上所採用的繪製方式
+lineCamp | 如何繪製線段的端點，可以是 butt round square 默認是 butt
+lineWidth | 繪製線段的屏幕像素寬度，默認是1.0
+lineJoin | 兩條線相交時如何繪製焦點，可以是 bevel round miter 默認是 miter
+miterLimit | 如何繪製 miter 形式的線段焦點
+shadowBlur | 如何延伸陰影效果，值越高，陰影效果延伸越遠，不是指像素長度，代表的是高斯模糊方程式裡面的參數值，默認0
+shadowColor | 繪製陰影的顏色，通常使用半透明顏色
+shadowOffsetX | 像素為單位， 陰影效果的水平方向偏移值
+shadowOffsetY | 像素為單位， 陰影效果的垂直方向偏移值
+strokeStyle | 路徑描邊的繪製風格，可以是顏色或者漸變色和圖案
+textAlign | fillText() 和 strokeText() 文本水平方向對齊方式
+textBaseline | fillText() 和 strokeText() 文本垂直方向對齊方式
+
+後面會仔細一個個介紹
