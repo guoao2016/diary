@@ -8,6 +8,8 @@ tags:
 
 閱讀 《HTML5 Canvas核心技术 图形、动画与游戏开发》 一書做點學習筆記
 
+所有源码都在这个地址 https://github.com/cody1991/diary/tree/master/_learn/canvas/html5-canvas-book
+
 # ch1
 
 canvas 的能力是通過 canvas 元素上的 context 上下文對象表現出來的
