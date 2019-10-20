@@ -406,3 +406,20 @@ windowToCanvas 是 把窗口坐标 转换成 canvas 坐标的方法，我们通�
 ---
 
 键盘事件
+
+我们在浏览器窗口按下某个按键，生成键盘事件，发生在当前拥有焦点的 html 元素上，如果没有元素拥有焦点，落在 window 和 document 对象上
+
+canvas 不可获取焦点，所以我们要在 document 和 window 上面绑定键盘监听器
+
+一共有三个事件 keydown keypress keyup
+
+keydown keyup 是底层事件，每次按键都会触发，某些敲击动作如特定的组合键，会被浏览器或者操作系统吞没，不过大部分包括 alt esc 等还是能通知他们处理的
+
+如果激发 keydown 事件打印出了某个自负，那么在触发 keyup 事件前会产生 keypress 事件，如果持续按住某个可以打印的字符的键，那么在keydown keyup之间产生一系列的 keypress 事件
+
+看按下了哪个健，我们一般可以看事件对象的 keyCode 属性，可打印的字符一般是其 ASCII 码，还包含了 altKey ctrlKey metaKey shiftKey 这几个的 boolean 属性
+
+另外只有可打印字符会触发 keypress 事件，我们可以放心的处理 `const key = String.fromCharCode(event.which)`
+
+---
+
