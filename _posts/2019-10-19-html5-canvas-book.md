@@ -133,3 +133,51 @@ textAlign | fillText() 和 strokeText() 文本水平方向對齊方式
 textBaseline | fillText() 和 strokeText() 文本垂直方向對齊方式
 
 後面會仔細一個個介紹
+
+---
+
+canvas 的狀態保存和恢復
+
+有時候我們希望臨時修改某些屬性，比如有時候需要比較粗的線條繼續後面的繪畫，這個時候需要臨時修改 lineWidth，之後恢復原來的各種屬性
+
+提供了 save() 和 restore() 兩個方法來保存和恢復繪圖環境的屬性
+
+```js
+function drawGrid(strokeStyle, fillStyle) {
+    context.save() // save the context on a stack
+
+    context.fillStyle = fillStyle;
+    context.strokeStyle = strokeStyle;
+
+    // draw grid
+
+    context.restore() // restore the context from the stack
+}
+```
+
+這個 stack 是可以嵌套使用的
+
+save() 方法：把當前 canvas 的狀態推送到一個保存當前狀態的棧頂，包括當前的座標變換(transformation)信息，剪輯區域（clipping region） 和 canvas 繪圖環境對象的屬性，包括 strokeStyle fillStyle 和 globalCompsiteOperation 等。
+
+它不包括當前的路徑和位圖，只能通過 beginPath() 來重置路徑，位圖是 canvas 本身的屬性，不屬於 context。注意：位圖是 canvas 的屬性，但是 context 也可以訪問它，調用 getImageData()
+
+restore() 方法：棧頂條目彈出，彈出以後就是當前 canvas 的狀態了
+
+---
+
+做一些基本的繪製動作，繪製一個時鐘⏰，涉及到一下一些方法
+
+- arc()
+- beginPath()
+- clearRect()
+- fill()
+- fillText()
+- lineTo()
+- moveTo()
+- stroke()
+
+canvas 可以繪製一些看不見的路徑，然後通過 stroke() 描繪路徑邊緣，或者 fill() 填充內部，則路徑可見
+
+調用 beginPath() 來開始定義某個路徑
+
+我們先進行編碼，後面慢慢解釋
