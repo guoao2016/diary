@@ -12,6 +12,14 @@ go~!
 
 --- 
 
+---
+
+https://zhuanlan.zhihu.com/p/34453198?group_id=957277540147056640 感觉是一个不错的作者，可以学习下理论知识
+
+https://segmentfault.com/a/1190000012925872
+
+---
+
 总结性的文章
 
 [前端面试考点多？看这些文章就够了](https://juejin.im/post/5aae076d6fb9a028cc6100a9)
