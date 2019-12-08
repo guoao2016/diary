@@ -10,6 +10,12 @@ tags:
 
 go~!
 
+--- 
+
+总结性的文章
+
+[前端面试考点多？看这些文章就够了](https://juejin.im/post/5aae076d6fb9a028cc6100a9)
+
 ---
 
 从 JavaScript 入手
@@ -51,3 +57,9 @@ JavaScript深入之继承的多种方式以及优缺点
 从 Vue 下手
 
 [vue 248个知识点（面试题）为你保驾护航](https://juejin.im/post/5d153267e51d4510624f9809)
+
+---
+
+算法学习
+
+[JavaScript 算法与数据结构](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
