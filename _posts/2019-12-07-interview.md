@@ -77,3 +77,5 @@ JavaScript深入之继承的多种方式以及优缺点
 搞来搞去还是想学 webpack = =
 
 [webpack-box 第一课](https://github.com/luoxue-victor/webpack-box/blob/master/docs/%E8%AF%BE%E6%97%B6-01.md)
+
+[webpack-box 第二课](https://github.com/luoxue-victor/webpack-box/blob/master/docs/%E8%AF%BE%E6%97%B6-02.md)
