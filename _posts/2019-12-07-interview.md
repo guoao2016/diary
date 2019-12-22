@@ -14,9 +14,9 @@ go~!
 
 ---
 
-https://zhuanlan.zhihu.com/p/34453198?group_id=957277540147056640 感觉是一个不错的作者，可以学习下理论知识
+[从输入URL到页面加载的过程？如何由一道题完善自己的前端知识体系！](https://zhuanlan.zhihu.com/p/34453198?group_id=957277540147056640) 感觉是一个不错的作者，可以学习下理论知识
 
-https://segmentfault.com/a/1190000012925872
+[从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理](https://segmentfault.com/a/1190000012925872)
 
 ---
 
@@ -71,3 +71,9 @@ JavaScript深入之继承的多种方式以及优缺点
 算法学习
 
 [JavaScript 算法与数据结构](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
+
+---
+
+搞来搞去还是想学 webpack = =
+
+[webpack-box 第一课](https://github.com/luoxue-victor/webpack-box/blob/master/docs/%E8%AF%BE%E6%97%B6-01.md)
