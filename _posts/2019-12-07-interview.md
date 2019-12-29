@@ -79,3 +79,7 @@ JavaScript深入之继承的多种方式以及优缺点
 [webpack-box 第一课](https://github.com/luoxue-victor/webpack-box/blob/master/docs/%E8%AF%BE%E6%97%B6-01.md)
 
 [webpack-box 第二课](https://github.com/luoxue-victor/webpack-box/blob/master/docs/%E8%AF%BE%E6%97%B6-02.md)
+
+---
+
+https://nlrx-wjc.github.io/Learn-Vue-Source-Code/reactive/object.html#_1-%E5%89%8D%E8%A8%80 不错的Vue源码解析
