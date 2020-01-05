@@ -30,55 +30,11 @@ go~!
 
 [JavaScript深入系列15篇正式完结！](https://juejin.im/post/59278e312f301e006c2e1510)
 
-JavaScirpt深入之从原型到原型链 done
-
-JavaScript深入之词法作用域和动态作用域 done
-
-JavaScript深入之执行上下文栈 done
-
-JavaScript深入之变量对象 done
-
-JavaScript深入之作用域链
-
-JavaScript深入之从ECMAScript规范解读this
-
-JavaScript深入之执行上下文
-
-JavaScript深入之闭包
-
-JavaScript深入之参数按值传递
-
-JavaScript深入之call和apply的模拟实现
-
-JavaScript深入之bind的模拟实现
-
-JavaScript深入之new的模拟实现
-
-JavaScript深入之类数组对象与arguments
-
-JavaScript深入之创建对象的多种方式以及优缺点
-
-JavaScript深入之继承的多种方式以及优缺点
-
----
-
-从 Vue 下手
-
-[vue 248个知识点（面试题）为你保驾护航](https://juejin.im/post/5d153267e51d4510624f9809)
-
 ---
 
 算法学习
 
 [JavaScript 算法与数据结构](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
-
----
-
-搞来搞去还是想学 webpack = =
-
-[webpack-box 第一课](https://github.com/luoxue-victor/webpack-box/blob/master/docs/%E8%AF%BE%E6%97%B6-01.md)
-
-[webpack-box 第二课](https://github.com/luoxue-victor/webpack-box/blob/master/docs/%E8%AF%BE%E6%97%B6-02.md)
 
 ---
 
